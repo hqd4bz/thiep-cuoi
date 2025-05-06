@@ -77,13 +77,6 @@
       text-align: center;
       color: #b76e79;
       margin-top: 0.5rem;
-      overflow: hidden;
-      white-space: nowrap;
-      animation: typing 3s steps(40, end) forwards;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
     }
     .heart {
       font-size: 2.5rem;
@@ -139,7 +132,6 @@
       50% { transform: scale(1.2); }
       100% { transform: scale(1); }
     }
-    /* Hoa rơi */
     .petal {
       position: fixed;
       top: -50px;
@@ -155,7 +147,7 @@
   </style>
 </head>
 <body>
-    <div class="container">
+  <div class="container">
     <div class="parents">
       <div class="parent-col">
         <div class="parent-title">Nhà trai</div>
@@ -200,7 +192,6 @@
       Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi.
     </div>
   </div>
-  <!-- Hoa rơi (10 cánh hoa) -->
   <script>
     for (let i = 0; i < 10; i++) {
       const petal = document.createElement('div');
