@@ -16,6 +16,7 @@
       background-position: right bottom;
       background-size: 300px auto;
       color: #2c2c2c;
+      overflow-x: hidden;
     }
     .container {
       max-width: 600px;
@@ -25,6 +26,8 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
       border-radius: 10px;
       animation: fadeIn 1.5s ease-in;
+      position: relative;
+      z-index: 1;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -66,6 +69,7 @@
       font-size: 0.95rem;
       color: #333;
       margin: 1.2rem 0 0.8rem;
+      white-space: pre-line;
     }
     .names {
       font-family: 'Great Vibes', cursive;
@@ -73,6 +77,13 @@
       text-align: center;
       color: #b76e79;
       margin-top: 0.5rem;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 3s steps(40, end) forwards;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
     }
     .heart {
       font-size: 2.5rem;
@@ -128,6 +139,19 @@
       50% { transform: scale(1.2); }
       100% { transform: scale(1); }
     }
+    /* Hoa rơi */
+    .petal {
+      position: fixed;
+      top: -50px;
+      font-size: 1.5rem;
+      color: #f3a6b5;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -170,5 +194,17 @@
       Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi.
     </div>
   </div>
+  <!-- Hoa rơi (10 cánh hoa) -->
+  <script>
+    for (let i = 0; i < 10; i++) {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = 5 + Math.random() * 5 + 's';
+      petal.style.fontSize = (1 + Math.random()) + 'rem';
+      petal.innerHTML = '❀';
+      document.body.appendChild(petal);
+    }
+  </script>
 </body>
 </html>
