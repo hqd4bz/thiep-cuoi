@@ -50,7 +50,7 @@
     .date-block{font-size:2rem;color:#c49a6c;font-weight:bold;display:flex;justify-content:center;gap:1rem}
     .address{font-size:1rem;margin-top:.5rem;line-height:1.4}
 
-    /* ---------- Timeline dọc (mẫu mới) ---------- */
+    /* ---------- Timeline dọc (mẫu mới) without icons ---------- */
     .timeline {
       position: relative;
       margin: 2.2rem 0 1.8rem;
@@ -70,7 +70,7 @@
     .timeline-entry {
       position: relative;
       width: 50%;
-      padding: 1rem 1.5rem; /* giữ padding gốc */
+      padding: 1rem 1.5rem;
       box-sizing: border-box;
     }
     .timeline-entry:nth-child(odd) {
@@ -81,16 +81,6 @@
       left: 50%;
       text-align: left;
     }
-    /* Chỉ đổi phần icon */
-    .timeline-entry .icon {
-      position: absolute;
-      top: 0;
-      transform: translateY(-50%);
-      font-size: 1.6rem;
-      color: #b76e79;
-    }
-    .timeline-entry:nth-child(odd)  .icon { right: calc(50% - 1px + 8px); }
-    .timeline-entry:nth-child(even) .icon { left:  calc(50% - 1px + 8px); }
     .timeline-time {
       font-weight: 700;
       color: #b76e79;
@@ -99,9 +89,8 @@
     }
     @media(max-width:500px){
       .timeline-entry, .timeline-entry:nth-child(odd), .timeline-entry:nth-child(even) {
-        left: 0; width:100%; text-align:left; padding-left:3.5rem;
+        left: 0; width:100%; text-align:left; padding-left:1rem;
       }
-      .timeline-entry .icon{left:0; right:auto; top:0; transform: none;}
       .timeline::before{left:20px}
     }
 
@@ -146,22 +135,18 @@
       <div class="address">(Nhằm ngày 05 tháng 06 năm Ất Tỵ)</div>
     </div>
 
-    <!-- Timeline -->
+    <!-- Timeline without icons -->
     <ul class="timeline">
       <li class="timeline-entry">
-        <span class="icon">👋</span>
         <span class="timeline-time">10h00</span> – Đón khách
       </li>
       <li class="timeline-entry">
-        <span class="icon">👰🤵</span>
         <span class="timeline-time">10h30</span> – Cử hành hôn lễ
       </li>
       <li class="timeline-entry">
-        <span class="icon">🥂</span>
         <span class="timeline-time">10h45</span> – Khai tiệc
       </li>
       <li class="timeline-entry">
-        <span class="icon">🎁</span>
         <span class="timeline-time">11h15</span> – Vui chơi trúng thưởng
       </li>
     </ul>
