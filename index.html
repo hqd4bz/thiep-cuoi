@@ -4,150 +4,120 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thiệp Cưới - Quốc Huy & Thanh Hiếu</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome (icon) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SZTyD7JENfo+I6mO2ERZqD2GnqJ04E5L4GBAg8rp/J6slCsz+g9G7+PiyAJUAK9D4IBXJ0e63fRwysqtRJNj+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Lato', sans-serif;
-      background-color: #fffaf7;
-      background-image: url('https://via.placeholder.com/600x800/fffaf7/ffffff?text=Hoa+thiệp+cưới');
-      background-repeat: no-repeat;
-      background-position: right bottom;
-      background-size: 300px auto;
-      color: #2c2c2c;
-      overflow-x: hidden;
+    /* ---------- Khung tổng ---------- */
+    body{
+      margin:0; padding:0;
+      font-family:'Lato',sans-serif;
+      background:#fffaf7 url('https://via.placeholder.com/600x800/fffaf7/ffffff?text=Hoa+thiệp+cưới') no-repeat right bottom / 300px auto;
+      color:#2c2c2c; overflow-x:hidden;
     }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 2rem 1.5rem;
-      background-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      border-radius: 10px;
-      animation: fadeIn 1.5s ease-in;
+    .container{
+      max-width:600px; margin:auto; padding:2rem 1.5rem;
+      background:rgba(255,255,255,.95);
+      box-shadow:0 0 10px rgba(0,0,0,.05);
+      border-radius:10px; animation:fadeIn 1.5s ease-in;
+      position:relative; z-index:1;
+    }
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ---------- Phần cha mẹ ---------- */
+    .parents{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .parent-col{flex:1 1 260px;text-align:center}
+    .parent-title{font-weight:700;font-size:.95rem;color:#b76e79;text-transform:uppercase;letter-spacing:.5px;margin-bottom:.25rem}
+    .parent-names{margin:0;font-size:.95rem;line-height:1.4;min-height:2.8rem}
+    .parent-address{margin:.25rem 0 0;font-size:.85rem;color:#333;line-height:1.4}
+
+    /* ---------- Lời mời & tên cô dâu chú rể ---------- */
+    .invitation-line{text-align:center;font-size:.95rem;color:#333;margin:1.2rem 0 .8rem;white-space:pre-line}
+    .names{font-family:'Great Vibes',cursive;font-size:2.6rem;text-align:center;color:#b76e79;margin-top:.5rem}
+    .heart{font-size:2.5rem;animation:pulse 1.2s infinite ease-in-out;text-align:center;margin-top:1rem}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+
+    /* ---------- Ảnh & ghi chú ---------- */
+    .wedding-photo{display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.1);margin:1.5rem auto 0}
+    .caption{text-align:center;font-style:italic;color:#777;font-size:.9rem;margin-top:.5rem}
+
+    /* ---------- Các section chung ---------- */
+    .section{text-align:center;margin:1.8rem 0}
+    .section-title{font-size:1.2rem;color:#333;margin-bottom:.5rem}
+
+    /* ---------- Thời gian ---------- */
+    .date-block{font-size:2rem;color:#c49a6c;font-weight:bold;display:flex;justify-content:center;gap:1rem}
+    .address{font-size:1rem;margin-top:.5rem;line-height:1.4}
+
+    /* ---------- Timeline dọc (mẫu mới) ---------- */
+    .timeline {
       position: relative;
-      z-index: 1;
+      margin: 2.2rem 0 1.8rem;
+      padding: 0;
+      list-style: none;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #c49a6c;
+      transform: translateX(-50%);
     }
-    .parents {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+    .timeline-entry {
+      position: relative;
+      width: 50%;
+      padding: 1rem 1.5rem;
+      box-sizing: border-box;
     }
-    .parent-col {
-      flex: 1 1 260px;
-      text-align: center;
+    .timeline-entry:nth-child(odd) {
+      left: 0;
+      text-align: right;
     }
-    .parent-title {
+    .timeline-entry:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+    .timeline-entry .icon {
+      position: absolute;
+      top: 1rem;
+      font-size: 1.6rem;
+      color: #b76e79;
+      background: none;
+      border: none;
+    }
+    .timeline-entry:nth-child(odd)  .icon { right: calc(50% - 1px + 8px); }
+    .timeline-entry:nth-child(even) .icon { left:  calc(50% - 1px + 8px); }
+    .timeline-time {
       font-weight: 700;
-      font-size: 0.95rem;
       color: #b76e79;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.25rem;
+      font-size: 1.05rem;
+      margin-right: 0.5rem;
     }
-    .parent-names {
-      margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      min-height: 2.8rem;
+    @media(max-width:500px){
+      .timeline-entry, .timeline-entry:nth-child(odd), .timeline-entry:nth-child(even) {
+        left: 0; width:100%; text-align:left; padding-left:3.5rem;
+      }
+      .timeline-entry .icon{left:0; right:auto}
+      .timeline::before{left:20px}
     }
-    .parent-address {
-      margin: 0.25rem 0 0;
-      font-size: 0.85rem;
-      color: #333;
-      line-height: 1.4;
-    }
-    .invitation-line {
-      text-align: center;
-      font-size: 0.95rem;
-      color: #333;
-      margin: 1.2rem 0 0.8rem;
-      white-space: pre-line;
-    }
-    .names {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.6rem;
-      text-align: center;
-      color: #b76e79;
-      margin-top: 0.5rem;
-    }
-    .heart {
-      font-size: 2.5rem;
-      animation: pulse 1.2s infinite ease-in-out;
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .wedding-photo {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin: 1.5rem auto 0;
-    }
-    .caption {
-      text-align: center;
-      font-style: italic;
-      color: #777;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-    .section {
-      text-align: center;
-      margin: 1.8rem 0;
-    }
-    .section-title {
-      font-size: 1.2rem;
-      color: #333;
-      margin-bottom: 0.5rem;
-    }
-    .date-block {
-      font-size: 2rem;
-      color: #c49a6c;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .address {
-      font-size: 1rem;
-      margin-top: 0.5rem;
-      line-height: 1.4;
-    }
-    .footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-      margin-top: 2.5rem;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-    .petal {
-      position: fixed;
-      top: -50px;
-      font-size: 1.5rem;
-      color: #f3a6b5;
-      animation: fall linear infinite;
-      z-index: 0;
-    }
-    @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
+
+    /* ---------- Chân trang ---------- */
+    .footer{text-align:center;font-size:.9rem;color:#777;margin-top:2.5rem}
+
+    /* ---------- Hiệu ứng hoa rơi ---------- */
+    .petal{position:fixed;top:-50px;font-size:1.5rem;color:#f3a6b5;animation:fall linear infinite;z-index:0}
+    @keyframes fall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(360deg);opacity:0}}
   </style>
 </head>
 <body>
   <div class="container">
+    <!-- Phần cha mẹ -->
     <div class="parents">
       <div class="parent-col">
         <div class="parent-title">Nhà trai</div>
@@ -160,38 +130,61 @@
         <p class="parent-address">Số 62, Tổ 7, P. Tân Long<br>TP. Thái Nguyên</p>
       </div>
     </div>
+
+    <!-- Lời mời & tên -->
     <div class="invitation-line">Trân trọng kính mời tới dự lễ thành hôn của hai con chúng tôi</div>
     <div class="names">Quốc Huy & Thanh Hiếu</div>
     <div class="heart">💖</div>
+
+    <!-- Ảnh cưới -->
     <img src="DAT3813.jpeg" alt="Ảnh cưới Huy và Hiếu" class="wedding-photo">
     <div class="caption">Quốc Huy & Thanh Hiếu – cùng nhau bước vào chương mới 💍</div>
+
+    <!-- Section thời gian -->
     <div class="section">
       <div class="section-title">Thời gian</div>
-      <div class="date-block">
-        <div>29</div>
-        <div>06</div>
-        <div>2025</div>
-      </div>
+      <div class="date-block"><div>29</div><div>06</div><div>2025</div></div>
       <div class="address">Chủ nhật, lúc 10 giờ 30 phút</div>
       <div class="address">(Nhằm ngày 05 tháng 06 năm Ất Tỵ)</div>
     </div>
+
+    <!-- Timeline -->
+    <ul class="timeline">
+      <li class="timeline-entry">
+        <span class="icon"><i class="fa-solid fa-user-friends"></i></span>
+        <span class="timeline-time">10h00</span> – Đón khách
+      </li>
+      <li class="timeline-entry">
+        <span class="icon"><i class="fa-solid fa-ring"></i></span>
+        <span class="timeline-time">10h30</span> – Cử hành hôn lễ
+      </li>
+      <li class="timeline-entry">
+        <span class="icon"><i class="fa-solid fa-champagne-glasses"></i></span>
+        <span class="timeline-time">10h45</span> – Khai tiệc
+      </li>
+      <li class="timeline-entry">
+        <span class="icon"><i class="fa-solid fa-trophy"></i></span>
+        <span class="timeline-time">11h15</span> – Vui chơi trúng thưởng
+      </li>
+    </ul>
+
+    <!-- Section địa điểm -->
     <div class="section">
       <div class="section-title">Địa điểm</div>
       <div class="address">
-        <a href="https://maps.app.goo.gl/SS8LiYNNuFktFGJA9" target="_blank" class="address">Trung tâm tiệc cưới Dũng Minh White Palace</a><br>
+        <a href="https://maps.app.goo.gl/SS8LiYNNuFktFGJA9" target="_blank">Trung tâm tiệc cưới Dũng Minh White Palace</a><br>
         Cách đường tròn Tân Long 100m về phía Bắc Kạn, Thái Nguyên
       </div>
-      <div style="margin-top: 1rem;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3720.478582019361!2d105.819263!3d21.566638!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31352b63fc66e399%3A0xa0db99a1195a113f!2sJQFR%2BF3%20Ph%C3%BA%20L%C6%B0%C6%A1ng%2C%20Th%C3%A1i%20Nguy%C3%AAn!5e0!3m2!1svi!2s!4v1715000000000!5m2!1svi!2s"
-          width="100%" height="300" style="border:0; border-radius: 10px; box-shadow: 0 0 8px rgba(0,0,0,0.1);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+      <div style="margin-top:1rem">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3720.478582019361!2d105.819263!3d21.566638!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31352b63fc66e399%3A0xa0db99a1195a113f!2sJQFR%2BF3%20Ph%C3%BA%20L%C6%B0%C6%A1ng%2C%20Th%C3%A1i%20Nguy%C3%AAn!5e0!3m2!1svi!2s!4v1715000000000!5m2!1svi!2s" width="100%" height="300" style="border:0;border-radius:10px;box-shadow:0 0 8px rgba(0,0,0,.1)" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
-    <div class="footer">
-      Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi.
-    </div>
+
+    <!-- Footer -->
+    <div class="footer">Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi.</div>
   </div>
+
+  <!-- Hoa rơi -->
   <script>
     for (let i = 0; i < 10; i++) {
       const petal = document.createElement('div');
